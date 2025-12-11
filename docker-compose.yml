@@ -1,0 +1,66 @@
+services:
+  # 1. BASE DE DATOS
+  db:
+    image: postgres:15-alpine
+    container_name: orgamain-db
+    environment:
+      POSTGRES_USER: orgamain_dev
+      POSTGRES_PASSWORD: "B3sTP4ss24"
+      POSTGRES_DB: orgamain_basededatos
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # LÍNEA MÁGICA: Carga el script de tablas automáticamente al inicio
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    # NUEVO: Comprobación de salud. Verifica si la DB está lista para aceptar conexiones.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orgamain_dev -d orgamain_basededatos"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. BACKEND
+  backend:
+    build: ./backend
+    container_name: orgamain-backend
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: orgamain_dev
+      DB_PASSWORD: "B3sTP4ss24"
+      DB_NAME: orgamain_basededatos
+      DB_PORT: 5432
+      PORT: 3000
+      JWT_SECRET: "secreto_super_seguro_docker"
+    # Añadimos volumen para desarrollo
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    # COMANDO NUEVO: Usamos modo desarrollo para que lea src/server.ts directamente
+    command: npm run dev
+    depends_on:
+      # CAMBIO: Ahora esperamos a que la DB esté "healthy" (lista), no solo iniciada.
+      db:
+        condition: service_healthy
+
+  # 3. FRONTEND
+  frontend:
+    build: ./frontend
+    container_name: orgamain-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: "http://localhost:3000/api"
+    # VOLÚMENES: Conectamos tu código local al contenedor
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    # COMANDO: Arranca en modo desarrollo
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
