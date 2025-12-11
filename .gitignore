@@ -1,0 +1,77 @@
+
+
+ARTEFACTOS GENERADOS Y DEPENDENCIAS
+
+Node/NPM/Yarn
+
+logs
+.log
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+node_modules
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+Artefactos de Build (Vite/React)
+
+dist
+dist-ssr
+coverage
+/build
+
+Archivos de caché y bases de datos locales
+
+.cache
+.eslintcache
+
+CONFIGURACIÓN SENSIBLE Y DE ENTORNO
+
+Variables de entorno (CRÍTICO: Contiene credenciales de DB y claves JWT)
+
+.env
+.env.local
+.env.*.local
+*.local
+*.pem
+*.key
+*.cert
+
+DOCKER Y VIRTUALIZACIÓN
+
+Directorios de volumen y caché generados por Docker
+
+/volumes
+/data
+*.img
+.dockerignore
+
+Archivos generados
+
+*.swp
+
+EDITOR Y SISTEMA OPERATIVO
+
+Logs del sistema operativo (macOS)
+
+.DS_Store
+
+IDEs (Visual Studio Code, JetBrains)
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+```bash
+git add .gitignore
+git add .
+git commit -m "feat: Añadido .gitignore para ignorar node_modules y .env sensibles"
+git push origin main
