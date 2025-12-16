@@ -1,0 +1,22 @@
+<svg width="121" height="77" viewBox="0 0 121 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_17_1181" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-36" y="-62" width="210" height="170">
+<rect width="210" height="169" transform="translate(-36 -61.636)" fill="white"/>
+<rect x="40" y="14.364" width="58" height="17" rx="8.5" fill="black"/>
+</mask>
+<g mask="url(#mask0_17_1181)">
+<foreignObject x="-40" y="-60.636" width="218" height="177"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(40px);clip-path:url(#bgblur_0_17_1181_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_f_17_1181)" data-figma-bg-blur-radius="80">
+<path d="M40 27.864C40 23.1696 43.8056 19.364 48.5 19.364H89.5C94.1944 19.364 98 23.1696 98 27.864C98 32.5584 94.1944 36.364 89.5 36.364H48.5C43.8056 36.364 40 32.5584 40 27.864Z" fill="black" fill-opacity="0.08" style="mix-blend-mode:hard-light"/>
+</g>
+</g>
+<path d="M40 22.864C40 18.1696 43.8056 14.364 48.5 14.364H89.5C94.1944 14.364 98 18.1696 98 22.864C98 27.5584 94.1944 31.364 89.5 31.364H48.5C43.8056 31.364 40 27.5584 40 22.864Z" fill="#262626" style="mix-blend-mode:color-dodge"/>
+<path d="M40 22.864C40 18.1696 43.8056 14.364 48.5 14.364H89.5C94.1944 14.364 98 18.1696 98 22.864C98 27.5584 94.1944 31.364 89.5 31.364H48.5C43.8056 31.364 40 27.5584 40 22.864Z" fill="#F5F5F5" fill-opacity="0.6"/>
+<rect x="40" y="14.364" width="58" height="17" rx="8.5" fill="black" fill-opacity="0.01"/>
+<defs>
+<filter id="filter0_f_17_1181" x="-40" y="-60.636" width="218" height="177" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_17_1181"/>
+</filter>
+<clipPath id="bgblur_0_17_1181_clip_path" transform="translate(40 60.636)"><path d="M40 27.864C40 23.1696 43.8056 19.364 48.5 19.364H89.5C94.1944 19.364 98 23.1696 98 27.864C98 32.5584 94.1944 36.364 89.5 36.364H48.5C43.8056 36.364 40 32.5584 40 27.864Z"/>
+</clipPath></defs>
+</svg>

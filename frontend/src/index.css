@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ESTILOS BASE Y FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+/* Transiciones suaves */
+* {
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out, color 0.2s ease-out, transform 0.1s ease-out;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: #a1a1a1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+
+/* COMPONENTES PERSONALIZADOS (@apply) */
+@layer components {
+    /* Navbar Fija y Estilizada */
+    .navbar-base {
+        @apply fixed top-0 w-full z-50 px-6 py-4;
+        @apply bg-white/90 backdrop-blur-md border-b border-gray-100;
+    }
+    
+    /* Distribución interna del Navbar */
+    .navbar-content-layout {
+        @apply flex justify-between items-center;
+    }
+
+    /* Botones */
+    .btn-primary {
+        @apply bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-500/40 hover:bg-blue-700;
+    }
+    .btn-secondary {
+        @apply bg-transparent text-gray-600 px-6 py-3 rounded-xl font-medium border border-gray-300 hover:bg-gray-100;
+    }
+    .registro-boton {
+      @apply px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30;
+    }
+
+    /* Tarjetas */
+    .card-base {
+        @apply bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300;
+    }
+    /* Otros */
+    .iniciar-sesion{
+      @apply text-gray-600 font-bold hover:text-blue-600 transition-colors
+    }
+}
+
+@media (max-width: 370px) {
+    .iniciar-sesion{
+      @apply hidden;
+    }
+    .registro-boton2 {
+      @apply hidden;
+    }
+}
+
+@media (min-width: 370px) {
+    .registro-boton2 {
+      @apply px-4 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30;
+    }
+    .iniciar-sesion{
+      @apply pl-8 text-gray-600 font-bold hover:text-blue-600 transition-colors;
+
+    }
+}
+
+/* ESTILOS RAW */
+.icon-base { color: #94a3b8; }
+
+.bg-estudiante-shape {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    position: relative;
+    overflow: hidden;
+}
+.bg-estudiante-shape::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 150px; height: 150px;
+    background: #fed7aa;
+    opacity: 0.3;
+    border-radius: 50%;
+}
